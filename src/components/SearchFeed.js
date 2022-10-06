@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchFeed = () => {
     return (
-        <div style={{ color: "white" }}>Feeder</div>
+        <div style={{ color: "white" }}>Feederman</div>
     )
 }
 
