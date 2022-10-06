@@ -6,15 +6,12 @@ import { fetchFromAPI } from "../utils/fetchFromAPI";
 import Videos from "./Videos";
 
 
-console.log("video", Videos)
-
 const Feed = () => {
     const [selectedCategory, setSelectedCategory] = useState("New");
-    const [videos, setVideos] = useState(null);
+    const [videos, setVideos] = useState([]);
 
     useEffect(() => {
         setVideos(null);
-
         fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => setVideos(data.items))
     }, [selectedCategory]);
@@ -22,8 +19,7 @@ const Feed = () => {
     return (
         <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
             <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid red", px: { sx: 0, md: 2 } }}>
-                {/* <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} /> */}
-                <Sidebar />
+                <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
                     Copyright © 2022 Duro Media
                 </Typography>
@@ -34,7 +30,7 @@ const Feed = () => {
                     {selectedCategory} <span style={{ color: "#FC1503" }}>videos</span>
                 </Typography>
 
-                <Videos />
+                <Videos videos={videos} />
             </Box>
         </Stack>
     );
