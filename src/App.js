@@ -5,7 +5,6 @@ import SearchFeed from './components/SearchFeed';
 import VideoDetail from './components/VideoDetail';
 import ChannelDetail from './components/ChannelDetail';
 import Feed from './components/Feed';
-import Ddd from "./components/Ddd";
 import './App.css';
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <Route path='/video/:id' element={<VideoDetail />} />
           <Route path='/channel/:id' element={<ChannelDetail />} />
           <Route path='/search/:searchTerm' element={<SearchFeed />} />
-          <Route path='/ddd/:id' element={<Ddd />} />
         </Routes >
       </Box>
     </Router>

@@ -13,7 +13,6 @@ const Videos = ({ videos, direction }) => {
                 <Box key={idx}>
                     {item.id.channelId && <ChannelCard channelDetail={item} />}
                     {item.id.videoId && <VideoCard video={item} />}
-
                 </Box>
             ))}
         </Stack>
