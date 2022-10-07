@@ -15,13 +15,13 @@ const SearchFeed = () => {
         fetchFromAPI(`search?part=snippet&q=${searchTerm}`)
             .then((data) => setVideos(data.items))
     }, [searchTerm]);   // <--- searchTerm is a dependency
-    
+
 
     return (
         <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
             <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
+                {searchTerm} <span style={{ color: "#FC1503" }}>videos</span>
             </Typography>
-
             <Videos videos={videos} />
         </Box>
     )

@@ -6,14 +6,16 @@ import SearchIcon from "@mui/icons-material/Search";
 // import "../index.css";
 
 const SearchBar = () => {
+    const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
-    const onhandleSubmit = () => {
-        console.log("got here!");
+    const onhandleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`/search/${searchTerm}`);
     }
 
     return (
         <Paper
-            component='form'
+            component='form' 
             onSubmit={onhandleSubmit}
             sx={{
                 borderRadius: 20,
